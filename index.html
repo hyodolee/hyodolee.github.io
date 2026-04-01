@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>개발자 포트폴리오 & 자기소개</title>
+    <!-- 폰트 및 아이콘 라이브러리 불러오기 -->
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* 기본 설정 및 배경 (은은한 그라데이션) */
+        body {
+            font-family: 'Pretendard', sans-serif;
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 40px 20px;
+            color: #2d3436;
+            box-sizing: border-box;
+        }
+
+        /* 메인 컨테이너 */
+        .container {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 560px;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        /* 상단 헤더 (프로필) */
+        .profile-header {
+            text-align: center;
+            padding: 40px 30px 20px;
+        }
+
+        .profile-img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #fff;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            margin: 0 0 5px;
+            font-size: 26px;
+            font-weight: 700;
+        }
+
+        .job-title {
+            color: #0984e3;
+            font-size: 16px;
+            font-weight: 600;
+            margin: 0 0 15px;
+        }
+
+        .bio {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #636e72;
+            margin: 0;
+            padding: 0 20px;
+        }
+
+        /* 본문 섹션 공통 스타일 */
+        .section {
+            padding: 20px 40px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #2d3436;
+        }
+
+        .section-title i {
+            color: #0984e3;
+        }
+
+        /* 스킬 태그 */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background-color: #f1f2f6;
+            color: #2f3542;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .skill-tag:hover {
+            background-color: #0984e3;
+            color: #fff;
+        }
+
+        /* 프로젝트 리스트 */
+        .project-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .project-card {
+            display: flex;
+            align-items: center;
+            padding: 16px;
+            background-color: #f8f9fa;
+            border-radius: 12px;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #f1f2f6;
+        }
+
+        .project-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.05);
+            background-color: #ffffff;
+            border-color: #e0e0e0;
+        }
+
+        .project-icon {
+            font-size: 24px;
+            color: #636e72;
+            width: 50px;
+            text-align: center;
+        }
+
+        .project-card:hover .project-icon {
+            color: #0984e3;
+        }
+
+        .project-info h3 {
+            margin: 0 0 4px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .project-info p {
+            margin: 0;
+            font-size: 13px;
+            color: #636e72;
+        }
+
+        /* 하단 링크 & 연락처 */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 30px 40px 40px;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: #f1f2f6;
+            color: #2d3436;
+            text-decoration: none;
+            font-size: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .social-btn:hover {
+            background-color: #2d3436;
+            color: #ffffff;
+            transform: scale(1.1);
+        }
+
+        /* 반응형 (모바일 최적화) */
+        @media (max-width: 480px) {
+            .section { padding: 20px 25px; }
+            .social-links { padding: 20px 25px 30px; }
+            .profile-header { padding: 30px 20px 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- 1. 프로필 헤더 -->
+        <div class="profile-header">
+            <!-- 프로필 사진 주소 변경 -->
+            <img src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="프로필 사진" class="profile-img">
+            <h1>이효도</h1>
+            <p class="job-title">Software Developer</p>
+            <p class="bio">
+                안녕하세요! 깔끔한 인터페이스와 효율적인 코드를 좋아하는 개발자입니다. 새로운 기술을 배우고 사람들에게 유용한 서비스를 만드는 것을 즐깁니다.
+			</p>
+        </div>
+
+        <!-- 2. 기술 스택 섹션 -->
+        <div class="section">
+            <h2 class="section-title"><i class="fas fa-code"></i> Tech Stack</h2>
+            <div class="skills-container">
+                <span class="skill-tag">Java</span>
+                <span class="skill-tag">C#</span>
+                <span class="skill-tag">Database (SQL)</span>
+                <span class="skill-tag">Naver Cloud</span>
+            </div>
+        </div>
+
+        <!-- 3. 프로젝트 링크 섹션 -->
+        <div class="section">
+            <h2 class="section-title"><i class="fas fa-folder-open"></i> Projects</h2>
+            <div class="project-list">
+                <!-- 프로젝트 1 -->
+                <a href="https://github.com/your-repo" target="_blank" class="project-card">
+                    <div class="project-icon"><i class="fas fa-store"></i></div>
+                    <div class="project-info">
+                        <h3>DANAGA 중고거래 플랫폼</h3>
+                        <p>DB 설계 (v3.3) 및 서비스 구현</p>
+                    </div>
+                </a>
+                
+                <!-- 프로젝트 2 -->
+                <a href="#" target="_blank" class="project-card">
+                    <div class="project-icon"><i class="fas fa-industry"></i></div>
+                    <div class="project-info">
+                        <h3>MES 구축 프로젝트</h3>
+                        <p>제조실행시스템 및 AI 기능 연동 도입</p>
+                    </div>
+                </a>
+
+                <!-- 프로젝트 3 -->
+                <a href="#" target="_blank" class="project-card">
+                    <div class="project-icon"><i class="fas fa-terminal"></i></div>
+                    <div class="project-info">
+                        <h3>Console UI Utility</h3>
+                        <p>콘솔 출력 컬러 및 아이콘 적용 라이브러리</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- 4. 연락처 및 소셜 링크 -->
+        <div class="social-links">
+            <a href="mailto:your-email@gmail.com" class="social-btn" title="이메일">
+                <i class="fas fa-envelope"></i>
+            </a>
+            <a href="https://github.com/" target="_blank" class="social-btn" title="깃허브">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
