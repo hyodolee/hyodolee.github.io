@@ -12,10 +12,10 @@ let veggiePage = 0;
 
 // 카드 렌더링 함수
 function renderProducts(data, container) {//data는 과일 또는 야채의 배열
-    console.log(data)
-    container.innerHTML = "";
-    data.forEach(item => {
-        container.innerHTML += `
+  console.log(data)
+  container.innerHTML = "";
+  data.forEach(item => {
+    container.innerHTML += `
       <div class="col-md-4">
         <div class="card h-100 shadow-sm">
         <a href="detail.html?id=${item.id}" class="text-decoration-none text-dark">
@@ -27,39 +27,56 @@ function renderProducts(data, container) {//data는 과일 또는 야채의 배�
           </a>
         </div>
       </div>`;
-    });
+  });
 }
 ////////아래 filterAndSortFruits() 와 loadVeggies() 완성하세요. /////////////////////////////////
 /* 
     과일 출력
 */
 function filterAndSortFruits() {
-    const fruitList = document.querySelector("#fruitList");
-    const searchBoxValue = document.querySelector("#searchBox").value;
-    const sortSelectValue = document.querySelector("#sortSelect").value;
+  const fruitList = document.querySelector("#fruitList");
+  const searchBoxValue = document.querySelector("#searchBox").value;
+  const sortSelectValue = document.querySelector("#sortSelect").value;
 
-    let filteredFruits = fruits.filter(fruit => fruit.name.indexOf(searchBoxValue) !== -1);
+  let filteredFruits = fruits.filter(fruit => fruit.name.indexOf(searchBoxValue) !== -1);
 
-    if (sortSelectValue === "name") {
-        filteredFruits.sort((a, b) => a.name > b.name ? 1 : (a.name < b.name ? -1 : 0));
-    } else if (sortSelectValue === "low") {
-        filteredFruits.sort((a, b) => a.price - b.price);
-    } else if (sortSelectValue === "high") {
-        filteredFruits.sort((a, b) => b.price - a.price);
-    }
+  if (sortSelectValue === "name") {
+    filteredFruits.sort((a, b) => a.name > b.name ? 1 : (a.name < b.name ? -1 : 0));
+  } else if (sortSelectValue === "low") {
+    filteredFruits.sort((a, b) => a.price - b.price);
+  } else if (sortSelectValue === "high") {
+    filteredFruits.sort((a, b) => b.price - a.price);
+  }
 
-    //화면에 다시 출력
-    renderProducts(filteredFruits, fruitList);
+  //화면에 다시 출력
+  renderProducts(filteredFruits, fruitList);
 }
 
 // 채소 출력 (3개씩 증가)
 function loadVeggies() {
-    let veggieList = document.querySelector("#veggieList");
+  let veggieList = document.querySelector("#veggieList");
 
 
+  let veggiesToShow;
+  if (veggiePage == 0) {
+    console.log("veggiesToShow", veggiesToShow);
+    veggiesToShow = veggies.slice(0, (veggiePage + 1) * 3);
 
-    //화면에 다시 출력
-    renderProducts(veggies, veggieList);
+  } else {
+
+    let veggiesAddToShow = veggies.slice(0, (veggiePage * 2));
+    console.log("veggiesAddToShow", veggiesAddToShow);
+    veggiesToShow = veggiesAddToShow;
+  }
+  veggiePage += 3;
+
+  //화면에 다시 출력
+  renderProducts(veggiesToShow, veggieList);
+
+  if (veggiePage >= veggies.length) {
+    loadMoreBtn.style.visibility = 'hidden';
+    return;
+  }
 }
 ////////////////////////////////////////////////////////
 
