@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IT's KOSTA</title>
+  <link rel="stylesheet" href="common.css">
+  <link rel="stylesheet" href="navbar.css">
+  <link rel="stylesheet" href="footer.css">
+  <style>
+    /* container sizing and alignment to resemble the screenshot */
+    #container {
+      width: 1000px;
+      margin: 0 auto;
+      background-color: white;
+    }
+
+    /* Grid configuration for index.html */
+    #main {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 5px; /* Narrow gap as seen in the image */
+      margin: 5px 0;
+    }
+    
+    .main-item {
+      border: 1px solid #ddd;
+      padding-bottom: 10px;
+    }
+
+    .main-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    .main-item h2 {
+      padding: 0 10px;
+      font-size: 1.2rem;
+      margin-top: 10px;
+      margin-bottom: 5px;
+    }
+    
+    .main-item p {
+      padding: 0 10px;
+      font-size: 0.85rem;
+      color: #555;
+      margin-bottom: 15px;
+    }
+    
+    /* Button inside the item is aligned to the right */
+    .main-item button {
+      float: right;
+      margin-right: 10px;
+      padding: 5px 15px;
+      border: 1px solid #aaa;
+      background-color: #eee;
+      cursor: pointer;
+    }
+
+    /* Clearfix for the main item since the button is floated */
+    .main-item::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    
+    <nav id="navbar">
+    <!-- 5개의 메뉴생성 -->
+      <ul>
+        <li class="nav-item logo"><a href="index.html"><img src="images/logo.jpg" alt="로고입니다." ></a></li>
+        <li class="nav-item"> <a href="personal.html">개인</a></li>
+        <li class="nav-item"><a href="busines.html">기업</a></li>
+        <li class="nav-item"><a href="login.html">로그인</a></li>
+        <li class="nav-item"><a href="register.html">회원가입</a></li>
+       
+      </ul>
+    </nav>
+    
+    <div id="banner">지금 당신의 행복! IT's KOSTA Life!</div> 
+    
+    <div id="main">
+    
+     <!-- 총 3개의 서브영역 -->
+      <div class="main-item">
+        <img src="https://picsum.photos/200" alt="">
+         <h2>main-item 1</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <button>button 1</button>
+      </div>
+      
+      <div class="main-item">
+        <img src="https://picsum.photos/200" alt="">
+         <h2>main-item 2</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <button>button 2</button>
+      </div>
+      
+      
+      
+      <div class="main-item">
+        <img src="https://picsum.photos/200" alt="">
+        <h2>main-item 3</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <button>button 3</button>
+      </div>
+      
+   </div>
+    
+     <footer>
+      <ul>
+        <li>경기도 오리역 한국소프트웨어진흥협회</li>
+        <li>02-0000-0000</li>
+      </ul>
+    </footer>
+    
+  </div>
+  
+</body>
+</html>
